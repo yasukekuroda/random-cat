@@ -1,4 +1,4 @@
-type Image = {
+export type Image = {
      url: string;
 }
 
@@ -16,7 +16,8 @@ export async function fetchImage(): Promise<Image> {
           throw new Error("画像が見つかりません");
      }
 
-     return images[0];
+     const image: Image = images[0];
+     return image;
 }
 
 function isImageArray(value: unknown): value is Image[] {
