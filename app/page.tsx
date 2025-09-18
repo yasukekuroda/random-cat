@@ -5,7 +5,7 @@ import { connection } from "next/server";
 // サーバーコンポーネントである.
 
 export default async function Home() {
-  // await connection();
+  await connection();
   const image = await fetchImage();
   return (
     <>
