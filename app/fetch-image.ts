@@ -1,5 +1,7 @@
 "use server"; // 常にサーバーで動作させる. サーバーサイドコンポーネントとする.
 
+import { CAT_API_KEY } from "./env";
+
 export type Image = {
      url: string;
 }
@@ -8,7 +10,10 @@ export type Image = {
  * APIから画像を取得する関数
  */
 export async function fetchImage(): Promise<Image> {
-     const res = await fetch("https://api.thecatapi.com/v1/images/search");
+     // const res = await fetch("https://api.thecatapi.com/v1/images/search");
+     const res = await fetch("https://api.thecatapi.com/v1/images/search", {
+         headers: { "x-api-key": CAT_API_KEY }, // 追加
+     });
      const images: unknown = await res.json();
      if (!isImageArray(images)) {
           throw new Error("APIのレスポンスが不正です");
