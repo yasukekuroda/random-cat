@@ -10,7 +10,6 @@ export default async function Home() {
   return (
     <>
       <CatImage url={image.url} />
-      <div>猫画像予定地</div>
     </>
 );
 }
