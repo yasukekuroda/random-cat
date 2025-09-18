@@ -1,3 +1,5 @@
+"use server"; // 常にサーバーで動作させる. サーバーサイドコンポーネントとする.
+
 export type Image = {
      url: string;
 }
@@ -17,6 +19,7 @@ export async function fetchImage(): Promise<Image> {
      }
 
      const image: Image = images[0];
+     console.log("fetchImage: 画像情報を取得しました", image);
      return image;
 }
 
